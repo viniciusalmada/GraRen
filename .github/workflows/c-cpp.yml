@@ -1,0 +1,44 @@
+name: Windows/Linux CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: sudo apt install -y libglew-dev cmake
+      - name: Run cmake configure
+        run: cmake -B build -S . -DCMAKE_BUILD_TYPE=Release
+      - name: Build
+        run: cmake --build build
+      - name: Archive shared object
+        uses: actions/upload-artifact@v3
+        with:
+          name: Shared object
+          path: build/libGraRen.so
+
+  build-windows:
+    runs-on: windows-2019
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          lfs: true
+      - name: Run cmake configure
+        run: cmake -B build -S .
+      - name: Build release version
+        run: cmake --build build --config Release
+      - name: Archive dynamic library
+        uses: actions/upload-artifact@v3
+        with:
+          name: Dynamic library
+          path: |
+            build/Release/GraRen.lib
+            build/Release/GraRen.dll
