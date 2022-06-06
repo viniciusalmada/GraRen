@@ -84,7 +84,7 @@ GL3H::RendererData GraRen::GLHandler::InitRenderer() const
   return GL3H::RendererData{ vertex_array, index_buffer, shader };
 }
 
-void GraRen::GLHandler::UpdateBuffers(const std::set<IElement>& elements)
+void GraRen::GLHandler::UpdateBuffers(const std::vector<IElement>& elements)
 {
   // Update first vertex buffer
   {

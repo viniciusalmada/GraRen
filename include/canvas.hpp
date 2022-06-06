@@ -1,13 +1,13 @@
 #ifndef GRAREN_CANVAS
 #define GRAREN_CANVAS
 
-#include "graren.hpp"
 #include "element.hpp"
 #include "gl_handler.hpp"
+#include "graren.hpp"
 #include "rectangle.hpp"
 
-#include <set>
 #include <memory>
+#include <vector>
 
 namespace GraRen
 {
@@ -31,7 +31,7 @@ namespace GraRen
 
     void GRAREN Render() const;
 
-    void GRAREN UpdateData(const std::set<IElement> elements);
+    void GRAREN UpdateData(const std::vector<IElement> elements);
 
   private:
     int width;
