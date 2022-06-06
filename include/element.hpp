@@ -12,11 +12,11 @@ namespace GraRen
   class GRAREN IElement
   {
   public:
-    virtual std::vector<Point> RetrievePositions() const { return {}; }
+    virtual std::vector<Point> RetrievePositions() const = 0;
 
-    virtual Color RetrieveColor() const { return Color::WHITE; }
+    virtual Color RetrieveColor() const = 0;
 
-    virtual std::vector<unsigned int> RetrieveIndices() const {return {}; }
+    virtual std::vector<unsigned int> RetrieveIndices() const = 0;
   };
 }
 

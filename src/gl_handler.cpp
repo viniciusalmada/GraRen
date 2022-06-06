@@ -84,16 +84,16 @@ GL3H::RendererData GraRen::GLHandler::InitRenderer() const
   return GL3H::RendererData{ vertex_array, index_buffer, shader };
 }
 
-void GraRen::GLHandler::UpdateBuffers(const std::vector<IElement>& elements)
+void GraRen::GLHandler::UpdateBuffers(const std::vector<IElement*>& elements)
 {
   // Update first vertex buffer
   {
     std::vector<VertexInfo::Data> vertices_data;
 
-    for (const IElement& element : elements)
+    for (const IElement* element : elements)
     {
-      std::vector<GraRen::Point> positions = element.RetrievePositions();
-      GraRen::Color color = element.RetrieveColor();
+      std::vector<GraRen::Point> positions = element->RetrievePositions();
+      GraRen::Color color = element->RetrieveColor();
       for (const GraRen::Point pt : positions)
       {
         VertexInfo info{ pt, color };
@@ -112,9 +112,9 @@ void GraRen::GLHandler::UpdateBuffers(const std::vector<IElement>& elements)
     unsigned int current_max_index = 0;
     std::vector<unsigned int> indices_data;
 
-    for (const IElement& element : elements)
+    for (const IElement* element : elements)
     {
-      const std::vector<unsigned int> indices = element.RetrieveIndices();
+      const std::vector<unsigned int> indices = element->RetrieveIndices();
       for (const auto i : indices)
       {
         indices_data.push_back(i + current_max_index);

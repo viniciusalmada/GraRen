@@ -31,7 +31,7 @@ namespace GraRen
 
     void GRAREN Render() const;
 
-    void GRAREN UpdateData(const std::vector<IElement> elements);
+    void GRAREN UpdateData(const std::vector<IElement*>& elements);
 
   private:
     int width;
