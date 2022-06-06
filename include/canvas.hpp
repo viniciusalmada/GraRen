@@ -29,22 +29,15 @@ namespace GraRen
 
     virtual GRAREN ~Canvas(){};
 
-    void GRAREN AddElement(const IElement* element);
-
     void GRAREN Render() const;
 
-    void GRAREN UpdateData();
+    void GRAREN UpdateData(const std::set<IElement> elements);
 
   private:
     int width;
     int height;
 
     GLHandler gl_handler;
-
-    std::set<const IElement*> elements;
-
-    GraRen::Rectangle rect_x;
-    GraRen::Rectangle rect_y;
   };
 }
 

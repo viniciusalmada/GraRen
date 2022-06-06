@@ -52,7 +52,7 @@ namespace GraRen
   public:
     GRAREN GLHandler(unsigned int width, unsigned int height);
 
-    void GRAREN UpdateBuffers(const std::set<const IElement*>& elements);
+    void GRAREN UpdateBuffers(const std::set<IElement>& elements);
 
     void GRAREN Render() const;
 
@@ -70,4 +70,4 @@ namespace GraRen
   };
 }
 
-#endif 
+#endif
