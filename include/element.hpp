@@ -5,7 +5,6 @@
 #include "graren.hpp"
 #include "point.hpp"
 
-#include <array>
 #include <vector>
 
 namespace GraRen
@@ -13,11 +12,11 @@ namespace GraRen
   class GRAREN IElement
   {
   public:
-    virtual std::vector<Point> RetrievePositions() const = 0;
+    virtual std::vector<Point> RetrievePositions() const { return {}; }
 
-    virtual Color RetrieveColor() const = 0;
+    virtual Color RetrieveColor() const { return Color::WHITE; }
 
-    virtual std::vector<unsigned int> RetrieveIndices() const = 0;
+    virtual std::vector<unsigned int> RetrieveIndices() const {return {}; }
   };
 }
 
