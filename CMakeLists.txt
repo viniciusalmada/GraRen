@@ -19,6 +19,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG")
 ## GRAREN LIBRARY
 ###############################################################################
 add_library(GraRen SHARED src/canvas.cpp
+                src/circle.cpp
                 src/color.cpp
                 src/gl_handler.cpp
                 src/line.cpp
